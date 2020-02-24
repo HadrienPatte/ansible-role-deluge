@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  role_name: deluge
+  author: Hadrien Patte
+  company: ""
+  description: Install and configure Deluge
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: Debian
+      versions: all
+  galaxy_tags: []
+
+dependencies: []
+...

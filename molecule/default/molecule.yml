@@ -1,0 +1,7 @@
+---
+platforms:
+  - name: debian
+    image: debian
+verifier:
+  name: testinfra
+...
