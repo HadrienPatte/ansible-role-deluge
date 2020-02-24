@@ -1,1 +1,4 @@
 ---
+deluge_user: deluge
+deluge_group: deluge
+...

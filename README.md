@@ -10,7 +10,9 @@ None.
 
 ## Role Variables
 
-None.
+* `deluge_user`: name of the system user that runs deluge, defaults to `deluge`
+* `deluge_group`: group of the system user that runs deluge, defaults to
+  `deluge`
 
 # Dependencies
 

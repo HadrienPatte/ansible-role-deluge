@@ -1,7 +1,11 @@
 ---
 platforms:
-  - name: debian
-    image: debian
+  - name: debian-buster
+    image: jrei/systemd-debian:10
+    privileged: true
+    command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 verifier:
   name: testinfra
 ...

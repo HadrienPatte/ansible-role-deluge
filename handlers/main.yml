@@ -1,0 +1,10 @@
+---
+- name: Reload daemons
+  systemd:
+    daemon_reload: true
+
+- name: Restart Deluge
+  systemd:
+    name: deluged
+    state: restarted
+...

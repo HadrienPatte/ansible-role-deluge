@@ -6,4 +6,40 @@
   register: apt_result
   retries: 3
   until: apt_result is succeeded
+
+- name: Remove legacy init.d script
+  file:
+    path: /etc/init.d/deluged
+    state: absent
+  notify: Reload daemons
+
+- name: Create {{ deluge_group }} group
+  group:
+    name: "{{ deluge_group }}"
+    state: present
+
+- name: Create {{ deluge_user }} user
+  user:
+    name: "{{ deluge_user }}"
+    group: "{{ deluge_group }}"
+    state: present
+    system: true
+    home: /var/lib/deluge
+
+- name: Configure Deluge service
+  template:
+    src: deluged.service.j2
+    dest: /lib/systemd/system/deluged.service
+  notify:
+    - Reload daemons
+    - Restart Deluge
+
+- name: Flush handlers
+  meta: flush_handlers
+
+- name: Enable Deluge service
+  systemd:
+    name: deluged
+    state: started
+    enabled: true
 ...
