@@ -30,3 +30,16 @@ def test_service_is_running(host, name):
 def test_service_is_enabled(host, name):
     service = host.service(name)
     assert service.is_enabled
+
+
+@pytest.mark.parametrize('directory', [
+    ('/var/lib/deluged'),
+    ('/var/lib/deluged/config'),
+    ('/var/log/deluged'),
+])
+def test_directory(host, directory):
+    directory = host.file(directory)
+    assert directory.exists
+    assert directory.is_directory
+    assert directory.user == 'deluge'
+    assert directory.group == 'deluge'

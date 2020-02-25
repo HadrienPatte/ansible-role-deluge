@@ -1,4 +1,6 @@
 ---
 deluge_user: deluge
 deluge_group: deluge
+deluge_config_directory: /var/lib/deluged
+deluge_log_level: info
 ...

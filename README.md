@@ -13,6 +13,10 @@ None.
 * `deluge_user`: name of the system user that runs deluge, defaults to `deluge`
 * `deluge_group`: group of the system user that runs deluge, defaults to
   `deluge`
+* `deluge_config_directory`: Directory where deluge configuration files will be
+  kept, defaults to `/var/lib/deluged`
+* `deluge_log_level`: Deluge log verbosity, possible values are: `none`, `info`,
+  `warning`, `error` or `debug`, defaults to `info`
 
 # Dependencies
 

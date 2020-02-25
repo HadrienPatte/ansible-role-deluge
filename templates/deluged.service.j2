@@ -8,7 +8,7 @@ Group = {{ deluge_group }}
 UMask=002
 
 Type=simple
-ExecStart=/usr/bin/deluged -d
+ExecStart=/usr/bin/deluged --do-not-daemonize --config={{ deluge_config_directory }}/config --logfile=/var/log/deluged/daemon.log --loglevel={{ deluge_log_level }}
 TimeoutStopSec=300
 KillMode=process
 Restart=on-failure

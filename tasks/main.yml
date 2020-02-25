@@ -24,7 +24,18 @@
     group: "{{ deluge_group }}"
     state: present
     system: true
-    home: /var/lib/deluge
+    create_home: false
+
+- name: Create deluge directories and set ownership
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ deluge_user }}"
+    group: "{{ deluge_group }}"
+  loop:
+    - "{{ deluge_config_directory }}"
+    - "{{ deluge_config_directory }}/config"
+    - /var/log/deluged
 
 - name: Configure Deluge service
   template:
